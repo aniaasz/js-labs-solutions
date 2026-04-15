@@ -1,0 +1,38 @@
+<!-- @author Stanisław Polak <polak@agh.edu.pl> -->
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Plik 'zadanie1D.html'</title>
+</head>
+<body>
+<h1>Plik 'zadanie1D.html'</h1>
+
+<form onInput="wynik.value = sum_strings([pole_tekstowe.value, pole_liczbowe.value])" >
+  <input id="pole_tekstowe" type="text" placeholder="Wprowadź tekst">
+  +
+  <input id="pole_liczbowe" type="number" placeholder="Wprowadź liczbę">
+  =
+  <output name="wynik" for="pole_tekstowe pole_liczbowe">Tu pojawi się wynik obliczeń</output>
+  <br>
+  <input type="button" value="Wypisz" onClick='funkcja_zwrotna()'>
+</form>
+
+<script>
+
+  function funkcja_zwrotna(){
+
+    // document.forms[indeks].elements[indeks/id]
+    let a = document.forms[0].elements["pole_tekstowe"].value;
+    let b = document.forms[0].elements["pole_liczbowe"].value;
+
+    console.log(`${a}:${typeof a}`);
+    console.log(`${b}:${typeof b}`);
+  }
+
+</script>
+<script src="zadanie2.js"></script>
+
+</body>
+</html>
