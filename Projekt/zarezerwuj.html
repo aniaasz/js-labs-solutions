@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, height=device-height">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <title>Zarezerwuj</title>
+    <style>
+        #canvaslogo{
+            height: 8vh;
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-body-tertiary" style="background: rgb(187, 238, 241) !important;">
+    <div class="container-fluid">
+        <a href="index.html">
+            <canvas id="canvaslogo" width="100" height="100"></canvas>
+        </a>
+        <a class="navbar-brand" href="index.html" style="margin-left: 1vw"> Hotel "Student"</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Oferta
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Pokoje</a></li>
+                        <li><a class="dropdown-item" href="#">Restauracja</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="zarezerwuj.html">Zarezerwuj</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--FORMULARZ-->
+
+<div class="row" id="sekcja-rezerwacji">
+    <div class="col-12 col-md-6 mx-auto">
+        <div class="card mt-3 shadow-sm">
+            <div class="card-header bg-primary-subtle text-black">
+                Zarezerwuj termin
+            </div>
+            <div class="card-body">
+                <form name="formularz-zarezerwuj">
+                    <div class="mb-3">
+                        <label for="formularz-input" class="form-label">Wprowadź parametry:</label>
+                        <input type="text" class="form-id control" name="formularz-input" id="formularz-input" placeholder="">
+                    </div>
+
+                    <div class="d-flex gap-2"> <button type="button" name="btn-dodaj" class="btn btn-success">Dodaj</button>
+                        <button type="button" name="btn-usun" class="btn btn-danger">Usuń</button>
+                        <button type="button" name="btn-wyswietl" class="btn btn-dark">Wyświetl</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-5">
+</div>
+
+<!--MIEJSCE WYŚWIETLANIA SIĘ REZERWACJI-->
+
+<div id="wynik-rezerwacji" class="mt-4 p-3 border rounded bg-light" style="width: 50%; margin: auto; margin-bottom: 10px;">
+</div>
+
+
+<!--ŚCIĄGA JAKIE DANE SĄ ZAHAEDKODOWANE I CO WPISYWAĆ W FORMULARZ-->
+
+<div class="row">
+    <div class="col-12 col-md-6 mx-auto">
+        <div class="card shadow-sm">
+            <div class="card-header bg-secondary text-white">Dostępne dane</div>
+            <div class="card-body p-0"> <table class="table table-sm table-striped mb-0">
+                <thead>
+                <tr>
+                    <th>Jaki przycisk</th>
+                    <th>Co podać</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Dodaj</td>
+                    <td>Imię nazwisko, pokój</td>
+                </tr>
+                <tr>
+                    <td>Usuń</td>
+                    <td>Imię nazwisko, pokój</td>
+                </tr>
+                <tr>
+                    <td>Wyświetl</td>
+                    <td>Pokój</td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-5">
+</div>
+
+<div class="row">
+    <div class="col-12 col-md-6 mx-auto">
+        <div class="card shadow-sm">
+            <div class="card-header bg-secondary text-white">Dostępne dane</div>
+            <div class="card-body p-0"> <table class="table table-sm table-striped mb-0">
+                <thead>
+                <tr>
+                    <th>Nr pokoju i ilość miejsc</th>
+                    <th>Imiona i nazwiska gości</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>101 (1-os)</td>
+                    <td>Jan Kowalski</td>
+                </tr>
+                <tr>
+                    <td>102 (2-os)</td>
+                    <td>Piotr Nowak</td>
+                </tr>
+                <tr>
+                    <td>103 (3-os)</td>
+                    <td>Jakub Mróz</td>
+                </tr>
+                <tr>
+                    <td>201 (5-os)</td>
+                    <td>Basia Górska</td>
+                </tr>
+                <tr>
+                    <td>202 (4-os)</td>
+                    <td>Ala Cedro</td>
+                </tr>
+                <tr>
+                    <td>203 (3-os)</td>
+                    <td>Julia Kowal</td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+
+    const rezerwacje = [];
+    const pokoje = [
+        { nr: 101, miejsca: 1 },
+        { nr: 102, miejsca: 2 },
+        { nr: 103, miejsca: 3 },
+        { nr: 201, miejsca: 5 },
+        { nr: 202, miejsca: 4 },
+        { nr: 203, miejsca: 3 },
+    ];
+    const klienci = [
+        "Jan Kowalski", "Piotr Nowak", "Jakub Mróz",
+        "Basia Górska", "Ala Cedro", "Julia Kowal"
+    ];
+
+    function dodaj(gosc, nrPokoju) {
+        const listaRezerwacji = document.getElementById("wynik-rezerwacji");
+        listaRezerwacji.innerHTML = "";
+        if (!klienci.includes(gosc)) {
+            console.error("Brak klienta w bazie");
+            window.alert("Brak klienta w bazie");
+            return;
+        }
+        if (!pokoje.some(p => p.nr == nrPokoju)) {
+            console.error("Brak pokoju w bazie");
+            window.alert("Brak pokoju w bazie");
+            return;
+        }
+
+        const transaction = db.transaction(["rezerwacje"], "readwrite");
+        const store = transaction.objectStore("rezerwacje");
+
+
+
+        // https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore/count
+
+        const request = store.openCursor();
+        const danePokoju = pokoje.find(p => p.nr == nrPokoju);
+
+        let licznikZajetych = 0;
+
+        request.onsuccess = (event) => {
+            const cursor = event.target.result;
+
+            if (cursor) {
+                if (cursor.value.pokoj == nrPokoju) {
+                    licznikZajetych++;
+                }
+                cursor.continue();
+            } else {
+                if (licznikZajetych >= danePokoju.miejsca) {
+                    window.alert(`Brak miejsc w pokoju`);
+                } else {
+                    const nowaRezerwacja = {gosc: gosc, pokoj: nrPokoju};
+                    const dodajRezerwacje = store.add(nowaRezerwacja);
+
+                    dodajRezerwacje.onsuccess = () => {
+                        console.log("Dodano nową rezerwację");
+                        window.alert(`Zarezerwowano pokój ${nrPokoju} dla: ${gosc}`);
+                    };
+                    dodajRezerwacje.onerror = () => console.error("Błąd zapisu");
+                }
+            }
+
+
+        }
+    }
+
+    function usun(gosc, nrPokoju){
+        const listaRezerwacji = document.getElementById("wynik-rezerwacji");
+        listaRezerwacji.innerHTML = "";
+
+        if (!klienci.includes(gosc)) {
+            console.error("Brak klienta w bazie");
+            window.alert("Brak klienta w bazie");
+            return;
+        }
+        if (!pokoje.some(p => p.nr == nrPokoju)) {
+            console.error("Brak pokoju w bazie");
+            window.alert("Brak pokoju w bazie");
+            return;
+        }
+
+        const transaction = db.transaction(["rezerwacje"], "readwrite");
+        const store = transaction.objectStore("rezerwacje");
+
+
+        // https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore/openCursor
+        const request = store.openCursor();
+        request.onsuccess = (event) => {
+            const cursor = event.target.result;
+
+            if (cursor) {
+                if (cursor.value.gosc === gosc && cursor.value.pokoj == nrPokoju) {
+                    const usuwanaRezerwacja = cursor.delete();
+                    usuwanaRezerwacja.onsuccess = () => console.log("Usunięto rezerwację");
+                    window.alert(`Usunięto rezerwację pokoju: ${nrPokoju} dla: ${gosc}`);
+                    return;
+                }
+                cursor.continue();
+            } else {
+                console.error("Nie znaleziono takiej rezerwacji");
+                window.alert("Nie znaleziono takiej rezerwacji");
+            }
+        };
+
+        request.onerror = () => console.error("Błąd bazy");
+    }
+
+    function wyswietl(nrPokoju){
+        const listaRezerwacji = document.getElementById("wynik-rezerwacji");
+        listaRezerwacji.innerHTML = "";
+        if (!pokoje.some(p => p.nr == nrPokoju)) {
+            console.error("Brak pokoju w bazie");
+            window.alert("Brak pokoju w bazie");
+            return;
+        }
+
+        const transaction = db.transaction(["rezerwacje"], "readonly");
+        const store = transaction.objectStore("rezerwacje");
+
+        let znaleziono = false;
+        const request = store.openCursor();
+
+        console.log(`Pokój: ${nrPokoju}`);
+        request.onsuccess = (event) => {
+            const cursor = event.target.result;
+            if (cursor) {
+                if (cursor.value.pokoj == nrPokoju) {
+                    console.log(`Gość: ${cursor.value.gosc}`);
+                    znaleziono = true;
+                    const wynik = document.createElement('li');
+                    wynik.textContent = cursor.value.gosc;
+                    listaRezerwacji.appendChild(wynik);
+                }
+                cursor.continue();
+            } else {
+                if (!znaleziono) {
+                    console.error("Brak rezerwacji dla tego pokoju");
+                    const wynik = document.createElement('li');
+                    wynik.textContent = "Brak rezerwacji";
+                    listaRezerwacji.appendChild(wynik);
+                }
+            }
+        };
+    }
+
+
+    let db;
+    const request = indexedDB.open("HotelDB", 1);
+
+
+    request.onupgradeneeded = (event) => {
+        db = event.target.result;
+
+        if (!db.objectStoreNames.contains("rezerwacje")) {
+            db.createObjectStore("rezerwacje", { keyPath: "id", autoIncrement: true });
+        }
+
+    };
+
+    request.onsuccess = (event) => {
+        db = event.target.result;
+        const formularz = document.forms["formularz-zarezerwuj"]
+
+        if (formularz) {
+
+            const parametry = formularz.elements["formularz-input"]
+
+            formularz.elements["btn-dodaj"].onclick = (event) => {
+                const dane = parametry.value.split(',')
+                if (dane.length === 2) {
+                    dodaj(dane[0].trim(), dane[1].trim());
+                } else {
+                    window.alert("Wpisz: Imię Nazwisko, NrPokoju");
+                }
+            }
+            formularz.elements["btn-usun"].onclick = (event) => {
+                const dane = parametry.value.split(',')
+                if (dane.length === 2) {
+                    usun(dane[0].trim(), dane[1].trim());
+                } else {
+                    window.alert("Wpisz: Imię Nazwisko, NrPokoju");
+                }
+            }
+            formularz.elements["btn-wyswietl"].onclick = (event) => {
+                const dane = parametry.value.split(',')
+                if (dane.length === 1) {
+                    wyswietl(dane[0].trim());
+                } else {
+                    window.alert("Wpisz: NrPokoju");
+                }
+            }
+
+        }
+
+    };
+
+
+    request.onerror = (event) => {
+        console.error(`Database error: ${event.target.error?.message}`);
+    };
+
+</script>
+<!--<footer class="fixed-bottom">-->
+<!--    <div class="text-black text-end p-1 small" style="background: rgb(187, 238, 241) !important;">-->
+<!--        © Hotel studencki-->
+<!--    </div>-->
+<!--    <div class="d-flex justify-content-sm-around p-1 small bg-light">-->
+<!--        <a href="tel:+48123456789">+48 123 456 789</a>-->
+<!--        <a href="mailto:recepcja@studencki.pl">recepcja@studencki.pl</a>-->
+<!--    </div>-->
+
+<!--</footer>-->
+<script src="logo.js"></script>
+</html>
