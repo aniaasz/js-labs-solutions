@@ -1,0 +1,238 @@
+<!-- @author Stanisław Polak <polak@agh.edu.pl> -->
+
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"
+          href="sheet.css"
+          media="screen"
+          type="text/css">
+    <title>Tytuł strony</title>
+</head>
+<body class="container">
+<header class="azure">
+    <!-- Page title -->
+    <!-- Background color: #EFF -->
+    <!-- Border color: #A8A8A8 -->
+
+    <h1>Tytuł strony</h1>
+</header>
+
+<nav class="azure">
+    <!--Tutaj menu nawigacyjne / Here the navigation menu -->
+    <!-- left & right margin: 25px -->
+
+    <ul>
+        <li>
+            <a href="">Element 1</a>
+        </li>
+
+        <li>
+            <a href="">Element 2</a>
+        </li>
+    </ul>
+</nav>
+<!-- Tutaj treść panelu bocznego / Here the content of the side panel-->
+
+<aside class="azure">
+    <h1>Panel boczny</h1>
+
+    <h2>Ciekawe odsyłacze</h2>
+
+    <ul>
+        <li>
+            <a href="">Odsyłacz 1</a>
+        </li>
+
+        <li>
+            <a href="">Odsyłacz 2</a>
+        </li>
+
+        <li>
+            <a href="">Odsyłacz 3</a>
+        </li>
+    </ul>
+</aside>
+
+<main class="azure">
+    <!--Tutaj treść strony / Here the content of the page -->
+
+    <h1>Treść strony</h1>
+
+    <blockquote>
+<!--        Natenczas Wojski chwycił na taśmie przypięty Swój róg bawoli, długi, cętkowany, kręty Jak wąż boa, oburącz do ust go przycisnął, Wzdął policzki jak banię, w oczach krwią zabłysnął, Zasunął wpół powieki, wciągnął w głąb pół brzucha I do płuc wysłał z niego cały zapas ducha, I zagrał: róg jak wicher, wirowatym dechem Niesie w puszczę muzykę i podwaja echem. Umilkli strzelcy, stali szczwacze zadziwieni Mocą, czystością, dziwną harmoniją pieni. Starzec cały kunszt, którym niegdyś w lasach słynął, Jeszcze raz przed uszami myśliwców rozwinął; Napełnił wnet, ożywił knieje i dąbrowy, Jakby psiarnię w nie wpuścił i rozpoczął łowy. Bo w graniu była łowów historyja krótka: Zrazu odzew dźwięczący, rześki: to pobudka; Potem jęki po jękach skomlą: to psów granie; A gdzieniegdzie ton twardszy jak grzmot: to strzelanie.-->
+    </blockquote>
+
+</main>
+
+<form id="style-controls">
+    <h2>Style controls</h2>
+    <button type="button" id="btn-set">Set</button>
+    <button type="button" id="btn-delete">Delete</button>
+    <button type="button" id="btn-add">Add</button>
+</form>
+
+<footer class="azure">
+    <!-- Tutaj treść stopki / Here the content of the footer -->
+    <a href="mailto:your.email.address">Imię Nazwisko</a>
+</footer>
+<script>
+
+    document.addEventListener("DOMContentLoaded", () =>{
+
+        const btn_set = document.getElementById("btn-set")
+        const btn_delete = document.getElementById("btn-delete")
+        const btn_add = document.getElementById("btn-add")
+
+        const text = ["Natenczas Wojski chwycił na taśmie przypięty",
+            " Swój róg bawoli, długi, cętkowany, kręty",
+            " Jak wąż boa, oburącz do ust go przycisnął,",
+            " Wzdął policzki jak banię, w oczach krwią zabłysnął,",
+            " Zasunął wpół powieki, wciągnął w głąb pół brzucha",
+            " I do płuc wysłał z niego cały zapas ducha,",
+            " I zagrał: róg jak wicher, wirowatym dechem",
+            " Niesie w puszczę muzykę i podwaja echem.",
+            " Umilkli strzelcy, stali szczwacze zadziwieni",
+            " Mocą, czystością, dziwną harmoniją pieni." ,
+            " Starzec cały kunszt, którym niegdyś w lasach słynął,",
+            " Jeszcze raz przed uszami myśliwców rozwinął; ",
+            "Napełnił wnet, ożywił knieje i dąbrowy, ",
+            "Jakby psiarnię w nie wpuścił i rozpoczął łowy. ",
+            "Bo w graniu była łowów historyja krótka:",
+            " Zrazu odzew dźwięczący, rześki: to pobudka;",
+            " Potem jęki po jękach skomlą: to psów granie;",
+            " A gdzieniegdzie ton twardszy jak grzmot: to strzelanie.\n"
+        ];
+
+        let parcnt = 0;
+
+        const setStyle  = () => {
+
+            const bgColor = "#EFF";
+            const borderColor = "#A8A8A8";
+
+            const container = document.querySelector(".container");
+            if (container) {
+                container.style.display = "grid";
+                container.style.gridTemplateColumns = "1fr 2fr 3fr 3fr";
+                container.style.gridTemplateAreas = `
+                "header header header header"
+                "nav    .    .  aside"
+                "main   main   .   ."
+                "footer footer footer footer"
+            `;
+                container.style.gap = "15px";
+                container.style.alignItems = "start";
+            }
+
+            const azure = document.querySelectorAll('.azure');
+            azure.forEach(el => {
+                el.style.backgroundColor = bgColor;
+                el.style.border = "1px solid black";
+                el.style.boxShadow = `0 0 2px 2px ${borderColor}`;
+                el.style.padding = "5px";
+            })
+
+            const aside = document.querySelector('aside');
+            if (aside) {
+                aside.style.gridArea = "aside";
+                aside.style.minHeight = "30vh";
+                aside.style.minWidth = "40vw";
+
+                const asideHeaders = aside.querySelectorAll('h1, h2');
+                asideHeaders.forEach(h => {
+                    h.style.margin = "0";
+                    h.style.padding = "0";
+                    h.style.fontSize = "30px";
+                });
+            }
+
+            const main = document.querySelector('main');
+            if (main) {
+                main.style.gridArea = "main";
+                main.style.minHeight = "60vh";
+                main.style.minWidth = "40vw";
+            }
+
+            const nav = document.querySelector('nav');
+            if (nav) {
+                nav.style.gridArea = "nav";
+                nav.style.marginRight = "25px";
+                nav.style.minHeight = "20vh";
+                nav.style.minWidth = "20vw";
+            }
+
+            document.querySelectorAll('nav li a, aside li a').forEach(a => {
+                a.style.fontSize = "18px";
+            });
+
+            const footer = document.querySelector('footer');
+            if (footer) {
+                footer.style.gridArea = "footer";
+            }
+
+            document.querySelectorAll('footer a').forEach(a => {
+                a.style.fontSize = "larger";
+            })
+
+            const bq = document.querySelector('blockquote');
+            if (bq) {
+                bq.style.textAlign = "justify";
+                bq.style.marginLeft = "1px";
+                bq.style.marginRight = "40px";
+            }
+
+            const header = document.querySelector('header');
+            if (header) {
+                header.style.gridArea = "header";
+
+                const headerHeaders = header.querySelectorAll('h1, h2');
+                headerHeaders.forEach(h => {
+                    h.style.margin = "0";
+                    h.style.padding = "10px";
+                    h.style.fontSize = "50px";
+                });
+
+            }
+
+        }
+
+        const delStyle = () => {
+
+            const allElements = document.querySelectorAll("*")
+            allElements.forEach(el => {
+                el.removeAttribute("style")
+            })
+
+        }
+
+        const addParagraph = () => {
+            bq = document.querySelector('blockquote');
+
+            if(parcnt<text.length) {
+                const p = document.createElement("p");
+                p.style.margin = "0.5px 0";
+                const piece = document.createTextNode(text[parcnt])
+                p.appendChild(piece);
+                bq.appendChild(p);
+                parcnt++;
+                if (parcnt == text.length) {
+                    btn_add.disabled = true;
+                }
+            }
+
+        }
+
+        btn_set.addEventListener("click", setStyle)
+        btn_delete.addEventListener("click", delStyle)
+        btn_add.addEventListener("click", addParagraph);
+
+
+
+
+
+    });
+
+</script>
+</body>
+</html>
