@@ -1,0 +1,25 @@
+function calculatePrimes(iterations) {
+    let primes = [];
+    for (let i = 0; i < iterations; i++) {
+        let candidate = i * (1000000000 * Math.random());
+        let isPrime = true;
+        for (var c = 2; c <= Math.sqrt(candidate); ++c) {
+            if (candidate % c === 0) {
+                // not prime
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime) {
+            primes.push(candidate);
+        }
+    }
+    return primes;
+}
+
+self.onmessage = function(event) {
+    const iteration_cnt = event.data; // pobranie danych
+    const result = calculatePrimes(iteration_cnt); // wykonanie obliczeń
+    self.postMessage(result); // wysłanie wyników
+    self.close(); // zamknięcie watku
+}
