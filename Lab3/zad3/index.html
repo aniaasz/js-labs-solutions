@@ -100,18 +100,16 @@
 
     const [counter, setCounter] = useState(parseInt(initial) || 0);
     const [isRunning, setIsRunning] = useState(false);
-    let timer;
 
     useEffect(() => {
+      let timer;
       if (isRunning) {
         timer = setInterval(() => {
           setCounter(prev => prev + 1);
         },parseInt(delay) || 1000);
-
-        return () => { if (timer) clearInterval(timer)};
-
       }
-    },[isRunning,delay]);
+      return () => clearInterval(timer);
+    },[isRunning]);
 
     return (
 
@@ -123,8 +121,8 @@
        </div>
 
        <div style={{marginLeft: '10px',marginBottom: '20px'}}>
-         <button onClick={() => setIsRunning(false)}>Stop</button>
          <button onClick={() => setIsRunning(true)}>Start</button>
+         <button onClick={() => setIsRunning(false)}>Stop</button>
        </div>
 
 

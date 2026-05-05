@@ -3,10 +3,10 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet"
-          href="sheet.css"
-          media="screen"
-          type="text/css">
+<!--    <link rel="stylesheet"-->
+<!--          href="sheet.css"-->
+<!--          media="screen"-->
+<!--          type="text/css">-->
     <title>Tytuł strony</title>
 </head>
 <body class="container">
@@ -199,6 +199,7 @@
 
         const delStyle = () => {
 
+            // pobranie wszystkich elementów
             const allElements = document.querySelectorAll("*")
             allElements.forEach(el => {
                 el.removeAttribute("style")
@@ -207,11 +208,13 @@
         }
 
         const addParagraph = () => {
-            bq = document.querySelector('blockquote');
+            const bq = document.querySelector('blockquote');
 
             if(parcnt<text.length) {
+                // tworzenie pustego akapitu
                 const p = document.createElement("p");
                 p.style.margin = "0.5px 0";
+                // wyciągnięcie tekstu
                 const piece = document.createTextNode(text[parcnt])
                 p.appendChild(piece);
                 bq.appendChild(p);
@@ -226,10 +229,6 @@
         btn_set.addEventListener("click", setStyle)
         btn_delete.addEventListener("click", delStyle)
         btn_add.addEventListener("click", addParagraph);
-
-
-
-
 
     });
 

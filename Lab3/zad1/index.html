@@ -53,8 +53,7 @@
         worker.postMessage(iterations)
 
         worker.onmessage = function(event) {
-            console.log(event);
-            document.getElementById('result_worker').value = event.data;
+            document.forms[0].result_worker.value = event.data;
         }
 
         worker.onerror = function(error) {
